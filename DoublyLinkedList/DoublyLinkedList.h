@@ -33,6 +33,7 @@ public:
 	void insert(T, int);
 	void remove();
 	void remove(int);
+	T& get(int);
 	int length();
 	bool empty();
 	void print();

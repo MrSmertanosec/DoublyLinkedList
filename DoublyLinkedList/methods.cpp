@@ -180,6 +180,48 @@ void DoublyLinkedList<T>::remove(int pos)
 }
 
 template <typename T>
+T& DoublyLinkedList<T>::get(int pos)
+{
+	if (size == 0)
+	{
+		std::cout << "List is empty\n";
+	}
+
+	if (pos == 0)
+	{
+		return head->value;
+	}
+
+	if (pos == size - 1)
+	{
+		return tail->value;
+	}
+
+	if (pos < size / 2)
+	{
+		Node<T>* cur = head;
+
+		for (int i = 0; i < pos; ++i)
+		{
+			cur = cur->next;
+		}
+
+		return cur->value;
+	}
+	else
+	{
+		Node<T>* cur = tail;
+
+		for (int i = size - pos - 1; i > 0; --i)
+		{
+			cur = cur->prev;
+		}
+
+		return cur->value;
+	}
+}
+
+template <typename T>
 int DoublyLinkedList<T>::length()
 {
 	return size;
